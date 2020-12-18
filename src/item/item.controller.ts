@@ -24,10 +24,16 @@ export class ItemController {
     return { items: await this.service.findAll() };
   }
 
-  @Post()
+  @Get('new')
+  @Render('item/new.hbs')
+  async newTodo() {
+    return { title: 'New Todo' };
+  }
+
+  @Post('create')
   async addItem(@Body() item: CreateItemDTO, @Res() res): Promise<typeof Res> {
     await this.service.create(item);
-    return res.status(201).redirect('/item');
+    return res.status(302).redirect('/item');
   }
 
   @Get(':id')

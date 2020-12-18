@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New | Nest Todo App</title>
+  <link rel="stylesheet" href="/public/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/siimple@3.3.1/dist/siimple.min.css">
+</head>
+<body>
+  <a href="/item" class="siimple-link">戻る</a>
+  <h1>New Todo</h1>
+  <div>
+    <form action="/item/create" method="post" class="siimple-form">
+      <div class="siimple-field">
+        <label for="todo" class="siimple-field-label">Todo:</label>
+        <input type="text" name="todo" id="todo" class="siimple-input">
+      </div>
+      <div class="siimple-field">
+        <label for="limit" class="siimple-field-label">Limit:</label>
+        <input type="date" name="limit" id="limit" class="siimple-input">
+      </div>
+      <div class="siimple-field">
+        <label for="deletePassword" class="siimple-field-label">Delete password:</label>
+        <input type="text" name="deletePassword" id="deletePassword" class="siimple-input">
+      </div>
+      <div class="siimple-field">
+        <button class="siimple-btn siimple-btn--teal bold">追加</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

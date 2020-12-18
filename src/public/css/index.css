@@ -13,3 +13,7 @@ body {
 .item_box span {
   display: block;
 }
+
+.bold {
+  font-weight: bold;
+}
