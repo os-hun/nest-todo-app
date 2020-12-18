@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Item | Nest Todo App</title>
+  <link rel="stylesheet" href="/public/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/siimple@3.3.1/dist/siimple.min.css">
+</head>
+<body>
+  <h1>Todo</h1>
+  <div>
+    {{#each items}}
+      <div class="item_box">
+        <span>
+          <a href="/item/{{id}}">
+            id: {{id}}
+          </a>
+        </span>
+        <span>todo: {{todo}}</span>
+        <span>limit: {{limit}}</span>
+      </div>
+    {{/each}}
+  </div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "type": "sqlite",
+  "database": "src/db/dev.sqlite",
+  "entities": ["dist/entities/**/*.entity{.ts,.js}"],
+  "migrations": ["dist/migrations/**/*{.ts,.js}"],
+  "logging": true
+}
