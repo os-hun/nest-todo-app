@@ -11,7 +11,7 @@
   <a href="/item/{{item.id}}" class="siimple-link">戻る</a>
   <h1>{{item.todo}} <small class="siimple-small">edit</small></h1>
   <div>
-    <form action="/item/:id" method="put" class="siimple-form">
+    <form action="/item/{{item.id}}/update?_method=PUT" method="post" class="siimple-form">
       <div class="siimple-field">
         <label for="todo" class="siimple-field-label">Todo:</label>
         <input type="text" name="todo" id="todo" class="siimple-input" value="{{item.todo}}">
@@ -23,6 +23,14 @@
       <div class="siimple-field">
         <label for="deletePassword" class="siimple-field-label">Delete password:</label>
         <input type="text" name="deletePassword" id="deletePassword" class="siimple-input" value="{{item.deletePassword}}">
+      </div>
+      <div class="siimple-field">
+        <label for="isDone" class="siimple-field-label">isDone:</label>
+        {{#if item.isDone}}
+          <input type="checkbox" name="isDone" id="isDone" class="siimple-input" checked="checked">
+        {{else}}
+          <input type="checkbox" name="isDone" id="isDone" class="siimple-input">
+        {{/if}}
       </div>
       <div class="siimple-field">
         <button class="siimple-btn siimple-btn--teal bold">保存</button>

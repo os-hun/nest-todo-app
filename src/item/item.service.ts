@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { Item } from '../entities/item.entity';
 import { Repository, UpdateResult, DeleteResult } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CreateItemDTO } from './item.dto';
+import { CreateItemDTO, UpdateItemDTO } from './item.dto';
 
 @Injectable()
 export class ItemService {
@@ -31,12 +31,27 @@ export class ItemService {
   }
 
   // IDを指定してデータを更新
-  async update(id: number, item: Item): Promise<UpdateResult> {
+  async update(id: number, item: UpdateItemDTO): Promise<UpdateResult> {
     return await this.itemRepository.update(id, item);
   }
 
   // IDを指定してテーブルのデータを削除
   async delete(id: number): Promise<DeleteResult> {
+    return await this.itemRepository.delete(id);
+  }
+
+  // パスワードを使用した削除
+  async deleteByPassword(
+    id: number,
+    deletePassword: string,
+  ): Promise<DeleteResult> {
+    const item = await this.find(id);
+    if (!item) {
+      return Promise.reject(new Error('Missing Item'));
+    }
+    if (item.deletePassword !== deletePassword) {
+      return Promise.reject(new Error('Incorrect Password'));
+    }
     return await this.itemRepository.delete(id);
   }
 }

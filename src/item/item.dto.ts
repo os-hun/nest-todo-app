@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsString } from 'class-validator';
+import { IsNotEmpty, IsString, IsOptional } from 'class-validator';
 
 export class CreateItemDTO {
   @IsNotEmpty()
@@ -12,4 +12,21 @@ export class CreateItemDTO {
   @IsNotEmpty()
   @IsString()
   deletePassword: string;
+}
+
+export class UpdateItemDTO {
+  @IsOptional()
+  @IsNotEmpty()
+  @IsString()
+  todo: string;
+
+  @IsOptional()
+  @IsNotEmpty()
+  @IsString()
+  limit: string;
+
+  @IsOptional()
+  @IsNotEmpty()
+  @IsString()
+  isDone: boolean;
 }

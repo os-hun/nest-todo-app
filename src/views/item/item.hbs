@@ -15,9 +15,21 @@
       <span>id: {{item.id}}</span>
       <span>todo: {{item.todo}}</span>
       <span>limit: {{item.limit}}</span>
+      <span>deletePassword: {{item.deletePassword}}</span>
       <span>
         <a href="/item/{{item.id}}/edit" class="siimple-link">編集</a>
       </span>
+    </div>
+    <div class="item_box">
+      <form action="/item/{{item.id}}/delete" method="post" class="siimple-form">
+        <div class="siimple-field">
+          <label for="deletePassword" class="siimple-field-label">deletePassword:</label>
+          <input type="text" name="deletePassword" id="deletePassword" class="siimple-input">
+        </div>
+        <div class="siimple-field">
+          <button class="siimple-btn siimple-btn--teal bold">削除</button>
+        </div>
+      </form>
     </div>
   </div>
 </body>
