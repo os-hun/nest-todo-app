@@ -27,7 +27,7 @@ export class ItemController {
   @Get('new')
   @Render('item/new.hbs')
   async newTodo() {
-    return { title: 'New Todo' };
+    return;
   }
 
   @Post('create')
@@ -39,6 +39,12 @@ export class ItemController {
   @Get(':id')
   @Render('item/item.hbs')
   async getItem(@Param('id') id: string): Promise<{ item: Item }> {
+    return { item: await this.service.find(Number(id)) };
+  }
+
+  @Get(':id/edit')
+  @Render('item/edit.hbs')
+  async editTodo(@Param('id') id: string): Promise<{ item: Item }> {
     return { item: await this.service.find(Number(id)) };
   }
 }
